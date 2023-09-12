@@ -42,12 +42,12 @@ vue create todos-vue
 
 - Install WebStorm
 
-## Project setup
+## Project setup to install all dependencies
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Compiles and hot-reloads the front-end app for development
 ```
 yarn serve
 ```
