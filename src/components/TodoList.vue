@@ -1,7 +1,12 @@
 <script lang="ts">
 import {Options, Vue} from 'vue-class-component';
+import TodoForm from "@/components/TodoForm.vue";
 
-@Options({})
+@Options({
+  components: {
+    TodoForm,
+  }
+})
 export default class TodoList extends Vue {
 
 }
@@ -9,6 +14,7 @@ export default class TodoList extends Vue {
 
 <template>
   <h1>TodoList</h1>
+  <todo-form></todo-form>
 </template>
 
 <style scoped>
