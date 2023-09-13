@@ -1,5 +1,7 @@
 <template>
-  <todo-list></todo-list>
+  <el-container>
+    <todo-list></todo-list>
+  </el-container>
 </template>
 
 <script lang="ts">
