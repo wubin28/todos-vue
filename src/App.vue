@@ -1,6 +1,8 @@
 <template>
   <el-container>
-    <todo-list></todo-list>
+    <el-main>
+      <todo-list></todo-list>
+    </el-main>
   </el-container>
 </template>
 
