@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <el-button>Example</el-button>
+    <el-button type="primary">Example</el-button>
   </div>
 </template>
 
