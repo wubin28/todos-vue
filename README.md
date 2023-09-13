@@ -32,6 +32,25 @@ npm install -g @vue/cli
 vue --version
 ```
 
+- Install vue-axios for using Axios conveniently to make HTTP requests to back-end server or API
+
+https://www.npmjs.com/package/vue-axios
+
+```shell
+npm install --save axios vue-axios
+npm list
+```
+
+- Install element-plus for high-quality components like buttons, tables, dialogs, etc.
+
+https://element-plus.org/en-US/guide/installation.html#version
+
+```shell
+npm install element-plus --save
+npm list
+npm info element-plus
+```
+
 ## Blank Front-end Project Setup - vue cli
 
 ```shell
