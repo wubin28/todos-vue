@@ -1,12 +1,21 @@
 <script lang="ts">
 import {Options, Vue} from 'vue-class-component';
+import {ElMessage} from "element-plus";
 
 @Options({})
 export default class TodoForm extends Vue {
   formInput = { title: "", completed: false};
 
   onSubmit() {
-    this.$emit('send-message', this.formInput);
+    if (this.formInput.title.length > 3) {
+      this.$emit('send-message', this.formInput);
+    } else {
+      ElMessage({
+        message: "Title must be longer than 3 characters",
+        type: "error"
+      })
+    }
+    this.formInput.title = "";
   }
 }
 </script>
