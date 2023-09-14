@@ -66,10 +66,14 @@ vue create todos-vue
 npm install
 ```
 
-### Compiles and hot-reloads the front-end app for development
+### How to run the vue.js app - Compiles and hot-reloads the front-end app for development
 ```
 npm run serve
 ```
+
+Visit the app from localhost or another machine
+http://localhost:8080/
+http://192.168.31.180:8080
 
 ### Compiles and minifies for production
 ```

@@ -25,10 +25,15 @@ export default class TodoList extends Vue {
   }
   async createTodo(todo: any) {
     console.log("Todo", todo)
+    await this.axios.post("http://192.168.31.180:8081/api/v1/todos", {
+      title: todo.title,
+      completed: todo.completed
+    });
     ElMessage({
       message: "Todo created",
       type: "success"
-    })
+    });
+    await this.loadTodos();
   }
 }
 </script>
