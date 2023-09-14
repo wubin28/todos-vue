@@ -4,7 +4,7 @@ import {ElMessage} from "element-plus";
 
 @Options({})
 export default class TodoForm extends Vue {
-  formInput = { title: "", completed: false};
+  formInput = {title: "", completed: false};
 
   onSubmit() {
     if (this.formInput.title.length > 3) {
@@ -12,7 +12,7 @@ export default class TodoForm extends Vue {
     } else {
       ElMessage({
         message: "Title must be longer than 3 characters",
-        type: "error"
+        type: "error",
       })
     }
     this.formInput.title = "";
@@ -21,7 +21,7 @@ export default class TodoForm extends Vue {
 </script>
 
 <template>
-  <el-form @submit.prevent :inline="true" :model="formInput" class="todo-form-input">
+  <el-form :inline="true" :model="formInput" class="todo-form-input" @submit.prevent>
     <el-form-item label="Title" prop="title">
       <el-input v-model="formInput.title" placeholder="Enter Todo"></el-input>
     </el-form-item>
