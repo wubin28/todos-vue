@@ -38,6 +38,10 @@ export default class TodoList extends Vue {
     <el-col :span="12" :offset="7" style="width: 100%">
       <h1>TodoList</h1>
       <todo-form @send-message="createTodo"></todo-form>
+      <el-table :data="todos">
+        <el-table-column prop="title" label="Title"></el-table-column>
+        <el-table-column prop="completed" label="Completed"></el-table-column>
+      </el-table>
     </el-col>
   </el-row>
 </template>
