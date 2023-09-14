@@ -74,7 +74,7 @@ export default class TodoList extends Vue {
 
 <template>
   <el-row>
-    <el-col :offset="7" :span="12" style="width: 100%">
+    <el-col>
       <h1>TodoList</h1>
       <todo-form @send-message="createTodo"></todo-form>
       <el-table :data="todos">
@@ -83,6 +83,14 @@ export default class TodoList extends Vue {
           <template #default="scope">
             <el-space wrap>
               <el-switch v-model="scope.row.completed" @change="updateTodo(scope.row)"></el-switch>
+              <el-popconfirm cancel-button-text="No" confirm-button-text="Yes" icon="el-icon-info" icon-color="red"
+                             title="Are you sure to delete this todo?"
+                             @cancel="cancelDelete"
+                             @confirm="deleteTodoById(scope.row)">
+                <template #reference>
+                  <el-button size="small" type="danger">Delete</el-button>
+                </template>
+              </el-popconfirm>
             </el-space>
           </template>
         </el-table-column>
