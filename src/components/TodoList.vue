@@ -23,7 +23,7 @@ export default class TodoList extends Vue {
 
   async loadTodos() {
     try {
-      const response = await this.axios.get("http://192.168.31.180:8081/api/v1/todos");
+      const response = await this.axios.get("http://localhost:8081/api/v1/todos");
       this.todos = response.data;
     } catch (error) {
       console.log('An error occurred:', error);
@@ -32,7 +32,7 @@ export default class TodoList extends Vue {
 
   async createTodo(todo: any) {
     console.log("Todo", todo)
-    await this.axios.post("http://192.168.31.180:8081/api/v1/todos", {
+    await this.axios.post("http://localhost:8081/api/v1/todos", {
       title: todo.title,
       completed: todo.completed,
     });
@@ -45,7 +45,7 @@ export default class TodoList extends Vue {
 
   async updateTodo(todo: Todo) {
     console.log("Todo", todo)
-    await this.axios.put(`http://192.168.31.180:8081/api/v1/todos/${todo.id}`, {
+    await this.axios.put(`http://localhost:8081/api/v1/todos/${todo.id}`, {
       id: todo.id,
       title: todo.title,
       completed: todo.completed,
@@ -58,7 +58,7 @@ export default class TodoList extends Vue {
   }
 
   async deleteTodoById(todo: Todo) {
-    await this.axios.delete(`http://192.168.31.180:8081/api/v1/todos/${todo.id}`);
+    await this.axios.delete(`http://localhost:8081/api/v1/todos/${todo.id}`);
     ElMessage({
       message: "Todo deleted",
       type: "success",
