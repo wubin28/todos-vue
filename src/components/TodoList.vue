@@ -21,17 +21,21 @@ export default class TodoList extends Vue {
     await this.loadTodos();
   }
 
-  async loadTodos() {
-    try {
-      const response = await this.axios.get("http://localhost:8081/api/v1/todos");
-      this.todos = response.data;
-    } catch (error) {
-      console.log('An error occurred:', error);
-    }
+  
+async loadTodos() {
+  try {
+    const response = await this.axios.get("http://localhost:8081/api/v1/todos");
+    this.todos = response.data;
+  } catch (error) {
+    ElMessage({
+      message: "Error loading todos. Please try again later.",
+      type: "error",
+    });
   }
+}
 
-  async createTodo(todo: any) {
-    console.log("Todo", todo)
+async createTodo(todo: any) {
+  try {
     await this.axios.post("http://localhost:8081/api/v1/todos", {
       title: todo.title,
       completed: todo.completed,
@@ -41,10 +45,17 @@ export default class TodoList extends Vue {
       type: "success",
     });
     await this.loadTodos();
+  } catch (error) {
+    ElMessage({
+      message: "Error creating todo. Please try again later.",
+      type: "error",
+    });
   }
+}
 
-  async updateTodo(todo: Todo) {
-    console.log("Todo", todo)
+  
+async updateTodo(todo: Todo) {
+  try {
     await this.axios.put(`http://localhost:8081/api/v1/todos/${todo.id}`, {
       id: todo.id,
       title: todo.title,
@@ -55,16 +66,30 @@ export default class TodoList extends Vue {
       type: "success",
     });
     await this.loadTodos();
+  } catch (error) {
+    ElMessage({
+      message: "Error updating todo. Please try again later.",
+      type: "error",
+    });
   }
+}
 
-  async deleteTodoById(todo: Todo) {
+  
+async deleteTodoById(todo: Todo) {
+  try {
     await this.axios.delete(`http://localhost:8081/api/v1/todos/${todo.id}`);
     ElMessage({
       message: "Todo deleted",
       type: "success",
     });
     await this.loadTodos();
+  } catch (error) {
+    ElMessage({
+      message: "Error deleting todo. Please try again later.",
+      type: "error",
+    });
   }
+}
 
   cancelDelete() {
     console.log("Canceled the delete")
